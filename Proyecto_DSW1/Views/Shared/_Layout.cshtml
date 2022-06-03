@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Proyecto DSW</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Nombre de la aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Mantenimientos", "Index", "Producto")</li>
+                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+<footer class="bg-info">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row flex-flow">
+                <div class="col-sm-12 col-md-4 footer-sidebar">
+                    <div class="widget contact-info">
+                        <h3 class="widget-title">Contáctanos</h3>
+                        <div class="content">
+                            <p class="address">Jirón Lord Nelson Nro. 380 - Miraflores</p>
+                            <p class="address">atencionalcliente@luxuryclub.pe</p>
+                            <p class="phone"><i class="fa fa-phone"></i> (01) 208-0333</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4 footer-sidebar">
+                    <div class="widget our-service">
+                        <h3 class="widget-title">SERVICIO AL CLIENTE</h3>
+                        <div class="content">
+                            <ul>
+                                <li><a href="tyc.html">Términos & Condiciones</a></li>
+                                <li><a href="">Libro de reclamaciones</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4 footer-sidebar">
+                    <div class="widget our-service">
+                        <h3 class="widget-title">INFORMACIÓN</h3>
+                        <div class="content">
+                            <ul>
+                                <li><a href="tarjeta.html">Tarjeta virtual</a></li>
+                                <li><a href="como-funciona.html">¿Cómo funciona?</a></li>
+                                <li><a href="faq.html">Preguntas frecuentes</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <p class="text-center">Iridium 2019 Todos los derechos reservados</p>
+        </div>
+    </div>
+</footer>
+
+</html>
