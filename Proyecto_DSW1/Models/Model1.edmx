@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="BD_DSW1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="BD_DSW1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Categoria">
           <Key>
             <PropertyRef Name="idCategoria" />
@@ -59,8 +59,8 @@
           <Property Name="nom_prod" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="pre_prod" Type="decimal" Precision="11" Scale="2" Nullable="false" />
           <Property Name="sto_prod" Type="int" Nullable="false" />
+          <Property Name="img_prod" Type="nvarchar" MaxLength="1024" Nullable="false" />
           <Property Name="des_prod" Type="varchar" MaxLength="255" />
-          <Property Name="img_prod" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Usuario">
           <Key>
@@ -159,7 +159,8 @@
             <End Role="Producto" EntitySet="Producto" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BD_DSW1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -170,7 +171,7 @@
           <Property Name="idCategoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nom_cat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="des_Cat" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Producto" Relationship="BD_DSW1Model.FK__Producto__idCate__2D27B809" FromRole="Categoria" ToRole="Producto" />
+          <NavigationProperty Name="Producto" Relationship="Self.FK__Producto__idCate__2D27B809" FromRole="Categoria" ToRole="Producto" />
         </EntityType>
         <EntityType Name="Cliente">
           <Key>
@@ -214,7 +215,21 @@
           <Property Name="cant_pedDetalle" Type="Int32" />
           <Property Name="total_pedDetalle" Type="Decimal" Precision="11" Scale="2" />
           <NavigationProperty Name="Pedido" Relationship="Self.FK__PedidoDet__idPed__33D4B598" FromRole="PedidoDetalle" ToRole="Pedido" />
-          <NavigationProperty Name="Producto" Relationship="BD_DSW1Model.FK__PedidoDet__idPro__32E0915F" FromRole="PedidoDetalle" ToRole="Producto" />
+          <NavigationProperty Name="Producto" Relationship="Self.FK__PedidoDet__idPro__32E0915F" FromRole="PedidoDetalle" ToRole="Producto" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="idProducto" />
+          </Key>
+          <Property Name="idProducto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCategoria" Type="Int32" />
+          <Property Name="nom_prod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pre_prod" Type="Decimal" Precision="11" Scale="2" Nullable="false" />
+          <Property Name="sto_prod" Type="Int32" Nullable="false" />
+          <Property Name="img_prod" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="des_prod" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Categoria" Relationship="Self.FK__Producto__idCate__2D27B809" FromRole="Producto" ToRole="Categoria" />
+          <NavigationProperty Name="PedidoDetalle" Relationship="Self.FK__PedidoDet__idPro__32E0915F" FromRole="Producto" ToRole="PedidoDetalle" />
         </EntityType>
         <EntityType Name="Usuario">
           <Key>
@@ -224,6 +239,18 @@
           <Property Name="nom_usu" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="clave_usu" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
+        <Association Name="FK__Producto__idCate__2D27B809">
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="idCategoria" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="idCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Cliente__idDistr__286302EC">
           <End Role="Distrito" Type="Self.Distrito" Multiplicity="0..1" />
           <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
@@ -260,13 +287,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__PedidoDet__idPro__32E0915F">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="0..1" />
+          <End Role="PedidoDetalle" Type="Self.PedidoDetalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="idProducto" />
+            </Principal>
+            <Dependent Role="PedidoDetalle">
+              <PropertyRef Name="idProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="BD_DSW1Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Categoria" EntityType="Self.Categoria" />
           <EntitySet Name="Cliente" EntityType="Self.Cliente" />
           <EntitySet Name="Distrito" EntityType="Self.Distrito" />
           <EntitySet Name="Pedido" EntityType="Self.Pedido" />
           <EntitySet Name="PedidoDetalle" EntityType="Self.PedidoDetalle" />
+          <EntitySet Name="Producto" EntityType="Self.Producto" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <AssociationSet Name="FK__Producto__idCate__2D27B809" Association="Self.FK__Producto__idCate__2D27B809">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
           <AssociationSet Name="FK__Cliente__idDistr__286302EC" Association="Self.FK__Cliente__idDistr__286302EC">
             <End Role="Distrito" EntitySet="Distrito" />
             <End Role="Cliente" EntitySet="Cliente" />
@@ -279,54 +323,11 @@
             <End Role="Pedido" EntitySet="Pedido" />
             <End Role="PedidoDetalle" EntitySet="PedidoDetalle" />
           </AssociationSet>
-          <EntitySet Name="Producto" EntityType="BD_DSW1Model.Producto" />
-          <AssociationSet Name="FK__Producto__idCate__2D27B809" Association="BD_DSW1Model.FK__Producto__idCate__2D27B809">
-            <End Role="Categoria" EntitySet="Categoria" />
-            <End Role="Producto" EntitySet="Producto" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PedidoDet__idPro__32E0915F" Association="BD_DSW1Model.FK__PedidoDet__idPro__32E0915F">
+          <AssociationSet Name="FK__PedidoDet__idPro__32E0915F" Association="Self.FK__PedidoDet__idPro__32E0915F">
             <End Role="Producto" EntitySet="Producto" />
             <End Role="PedidoDetalle" EntitySet="PedidoDetalle" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Producto">
-          <Key>
-            <PropertyRef Name="idProducto" />
-          </Key>
-          <Property Name="idProducto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idCategoria" Type="Int32" />
-          <Property Name="nom_prod" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="pre_prod" Type="Decimal" Nullable="false" Precision="11" Scale="2" />
-          <Property Name="sto_prod" Type="Int32" Nullable="false" />
-          <Property Name="des_prod" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="img_prod" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Categoria" Relationship="BD_DSW1Model.FK__Producto__idCate__2D27B809" FromRole="Producto" ToRole="Categoria" />
-          <NavigationProperty Name="PedidoDetalle" Relationship="BD_DSW1Model.FK__PedidoDet__idPro__32E0915F" FromRole="Producto" ToRole="PedidoDetalle" />
-        </EntityType>
-        <Association Name="FK__Producto__idCate__2D27B809">
-          <End Type="BD_DSW1Model.Categoria" Role="Categoria" Multiplicity="0..1" />
-          <End Type="BD_DSW1Model.Producto" Role="Producto" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Categoria">
-              <PropertyRef Name="idCategoria" />
-            </Principal>
-            <Dependent Role="Producto">
-              <PropertyRef Name="idCategoria" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__PedidoDet__idPro__32E0915F">
-          <End Type="BD_DSW1Model.Producto" Role="Producto" Multiplicity="0..1" />
-          <End Type="BD_DSW1Model.PedidoDetalle" Role="PedidoDetalle" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Producto">
-              <PropertyRef Name="idProducto" />
-            </Principal>
-            <Dependent Role="PedidoDetalle">
-              <PropertyRef Name="idProducto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -383,25 +384,25 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Producto">
+            <EntityTypeMapping TypeName="BD_DSW1Model.Producto">
+              <MappingFragment StoreEntitySet="Producto">
+                <ScalarProperty Name="idProducto" ColumnName="idProducto" />
+                <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+                <ScalarProperty Name="nom_prod" ColumnName="nom_prod" />
+                <ScalarProperty Name="pre_prod" ColumnName="pre_prod" />
+                <ScalarProperty Name="sto_prod" ColumnName="sto_prod" />
+                <ScalarProperty Name="img_prod" ColumnName="img_prod" />
+                <ScalarProperty Name="des_prod" ColumnName="des_prod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Usuario">
             <EntityTypeMapping TypeName="BD_DSW1Model.Usuario">
               <MappingFragment StoreEntitySet="Usuario">
                 <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
                 <ScalarProperty Name="nom_usu" ColumnName="nom_usu" />
                 <ScalarProperty Name="clave_usu" ColumnName="clave_usu" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Producto">
-            <EntityTypeMapping TypeName="BD_DSW1Model.Producto">
-              <MappingFragment StoreEntitySet="Producto">
-                <ScalarProperty Name="img_prod" ColumnName="img_prod" />
-                <ScalarProperty Name="des_prod" ColumnName="des_prod" />
-                <ScalarProperty Name="sto_prod" ColumnName="sto_prod" />
-                <ScalarProperty Name="pre_prod" ColumnName="pre_prod" />
-                <ScalarProperty Name="nom_prod" ColumnName="nom_prod" />
-                <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
-                <ScalarProperty Name="idProducto" ColumnName="idProducto" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

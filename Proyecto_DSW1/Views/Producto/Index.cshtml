@@ -4,13 +4,11 @@
     ViewBag.Title = "Index";
 }
 
-<h2 class="text-center">Listado - Mantenimiento de Productos</h2>
+<h2 class="text-center">Listado - Manteniento de Productos</h2>
 
-
-
-@Html.ActionLink("Nuevo Producto", "Create", null, new { @class = "btn btn-primary" })
-<br />
-
+<p>
+    @Html.ActionLink("Nuevo producto", "Create", null, new { @class = "btn btn-primary"})
+</p>
 <table class="table table-bordered">
     <tr class="bg-primary">
         <th>
@@ -28,40 +26,39 @@
         <th>
             @Html.DisplayNameFor(model => model.sto_prod)
         </th>
+
         <th>
             @Html.DisplayNameFor(model => model.img_prod)
         </th>
-
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.idProducto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Categoria.nom_cat)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.nom_prod)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.pre_prod)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.sto_prod)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.img_prod)
-            </td>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idProducto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Categoria.nom_cat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nom_prod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pre_prod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sto_prod)
+        </td>
 
-            <td>
-                @Html.ActionLink("Modificar", "Edit", new { id = item.idProducto }) |
-                @Html.ActionLink("X", "Delete", new { id = item.idProducto })
-            </td>
-        </tr>
-    }
+        <td>
+            @Html.DisplayFor(modelItem => item.img_prod)
+        </td>
+        <td>
+            @Html.ActionLink("Modificar", "Edit", new { id=item.idProducto }) |
+            @Html.ActionLink("X", "Delete", new {  id=item.idProducto})
+        </td>
+    </tr>
+}
 
 </table>

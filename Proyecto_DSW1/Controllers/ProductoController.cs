@@ -23,11 +23,8 @@ namespace Proyecto_DSW1.Controllers
         {
             return View(db.Producto.ToList());
         }
-        public ActionResult Create()
-        {
-            ViewBag.categorias = new SelectList(db.Categoria, "idCategoria", "nom_cat");
-            return View();
-        }
+
+        /*
         public ActionResult getImage(int id)
         {
             Producto producto = db.Producto.Find(id);
@@ -42,32 +39,22 @@ namespace Proyecto_DSW1.Controllers
 
             return File(memoryStream, "image/jpg");
         }
+        */
+        public ActionResult Create()
+        {
+            ViewBag.categorias = new SelectList(db.Categoria, "idCategoria", "nom_cat");
+            return View();
+        }
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Create(Producto producto)
         {
-            HttpPostedFileBase fileBase = Request.Files[0];
-            if (fileBase.ContentLength == 0)
+            if (ModelState.IsValid)
             {
-                ModelState.AddModelError("fotoproducto", "Es necesario seleccionar Imagen");
-                return View(producto);
+                db.Producto.Add(producto);
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
-            else
-            {
-                if (fileBase.FileName.EndsWith(".jpg"))
-                {
-                    WebImage image = new WebImage(fileBase.InputStream);
-                    producto.img_prod = image.GetBytes();
-                }
-                else
-                {
-                    ModelState.AddModelError("fotoproducto", "No es formato adecuado");
-                    return View(producto);
-                }
-            }               
-            db.Producto.Add(producto);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            return View(producto);
         }               
         public ActionResult Edit(int? id)
         {
@@ -87,11 +74,8 @@ namespace Proyecto_DSW1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Producto producto)
         {
-            HttpPostedFileBase fileBase = Request.Files[0];
-            WebImage image = new WebImage(fileBase.InputStream);
-            producto.img_prod = image.GetBytes();
             if (ModelState.IsValid)
-            {               
+            {
                 db.Entry(producto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

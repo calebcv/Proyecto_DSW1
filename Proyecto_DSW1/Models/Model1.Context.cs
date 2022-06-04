@@ -30,7 +30,7 @@ namespace Proyecto_DSW1.Models
         public virtual DbSet<Distrito> Distrito { get; set; }
         public virtual DbSet<Pedido> Pedido { get; set; }
         public virtual DbSet<PedidoDetalle> PedidoDetalle { get; set; }
-        public virtual DbSet<Usuario> Usuario { get; set; }
         public virtual DbSet<Producto> Producto { get; set; }
+        public virtual DbSet<Usuario> Usuario { get; set; }
     }
 }

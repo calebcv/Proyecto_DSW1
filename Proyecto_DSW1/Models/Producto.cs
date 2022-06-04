@@ -25,8 +25,8 @@ namespace Proyecto_DSW1.Models
         public string nom_prod { get; set; }
         public decimal pre_prod { get; set; }
         public int sto_prod { get; set; }
-        public string des_prod { get; set; }
         public string img_prod { get; set; }
+        public string des_prod { get; set; }
     
         public virtual Categoria Categoria { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
