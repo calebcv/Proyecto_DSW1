@@ -1,0 +1,66 @@
+﻿@model Proyecto_DSW1.Models.Cliente
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 class="text-center">Detalles del Cliente</h2>
+
+<div>
+    <h4>Datos del Cliente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.dni_clie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dni_clie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nom_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nom_cli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ape_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ape_cli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mail_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mail_cli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tel_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tel_cli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Distrito.nom_dis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Distrito.nom_dis)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.idCliente }) |
+    @Html.ActionLink("Volver al listado", "Index")
+</p>

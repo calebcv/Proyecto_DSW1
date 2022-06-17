@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Proyecto_DSW1.Models.Cliente>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="text-center">Listado - Mantenimiento de Clientes</h2>
+
+<p>
+    @Html.ActionLink("Nuevo cliente", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table table-bordered">
+    <tr class="bg-primary">
+        <th>
+            @Html.DisplayNameFor(model => model.dni_clie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nom_cli)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ape_cli)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mail_cli)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tel_cli)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Distrito.nom_dis)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.dni_clie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nom_cli)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ape_cli)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mail_cli)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tel_cli)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Distrito.nom_dis)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.idCliente }) |
+                @Html.ActionLink("Info", "Details", new { id = item.idCliente }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.idCliente })
+            </td>
+        </tr>
+    }
+
+</table>

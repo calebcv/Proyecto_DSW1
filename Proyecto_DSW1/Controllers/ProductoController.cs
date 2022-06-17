@@ -24,7 +24,7 @@ namespace Proyecto_DSW1.Controllers
             return View(db.Producto.ToList());
         }
 
-    public ActionResult IndexCarrito()
+        public ActionResult IndexCarrito()
         {
             return View(db.Producto.ToList().OrderBy(x => x.des_prod));
         }
