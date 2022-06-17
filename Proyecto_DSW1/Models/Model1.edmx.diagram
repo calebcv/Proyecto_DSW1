@@ -17,6 +17,7 @@
         <AssociationConnector Association="BD_DSW1Model.FK__Pedido__idClient__300424B4" ManuallyRouted="false" />
         <AssociationConnector Association="BD_DSW1Model.FK__PedidoDet__idPed__33D4B598" ManuallyRouted="false" />
         <AssociationConnector Association="BD_DSW1Model.FK__PedidoDet__idPro__32E0915F" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BD_DSW1Model.sysdiagrams" Width="1.5" PointX="7.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
