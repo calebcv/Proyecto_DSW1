@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BD_DSW1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="BD_DSW1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Categoria">
           <Key>
             <PropertyRef Name="idCategoria" />
@@ -59,7 +59,7 @@
           <Property Name="nom_prod" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="pre_prod" Type="decimal" Precision="11" Scale="2" Nullable="false" />
           <Property Name="sto_prod" Type="int" Nullable="false" />
-          <Property Name="img_prod" Type="nvarchar" MaxLength="1024" Nullable="false" />
+          <Property Name="img_prod" Type="image" />
           <Property Name="des_prod" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="Usuario">
@@ -94,7 +94,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PedidoDet__idPed__33D4B598">
+        <Association Name="FK__PedidoDet__idPed__45F365D3">
           <End Role="Pedido" Type="Self.Pedido" Multiplicity="0..1" />
           <End Role="PedidoDetalle" Type="Self.PedidoDetalle" Multiplicity="*" />
           <ReferentialConstraint>
@@ -106,7 +106,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PedidoDet__idPro__32E0915F">
+        <Association Name="FK__PedidoDet__idPro__44FF419A">
           <End Role="Producto" Type="Self.Producto" Multiplicity="0..1" />
           <End Role="PedidoDetalle" Type="Self.PedidoDetalle" Multiplicity="*" />
           <ReferentialConstraint>
@@ -118,7 +118,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Producto__idCate__2D27B809">
+        <Association Name="FK__Producto__idCate__403A8C7D">
           <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1" />
           <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
           <ReferentialConstraint>
@@ -146,21 +146,20 @@
             <End Role="Cliente" EntitySet="Cliente" />
             <End Role="Pedido" EntitySet="Pedido" />
           </AssociationSet>
-          <AssociationSet Name="FK__PedidoDet__idPed__33D4B598" Association="Self.FK__PedidoDet__idPed__33D4B598">
+          <AssociationSet Name="FK__PedidoDet__idPed__45F365D3" Association="Self.FK__PedidoDet__idPed__45F365D3">
             <End Role="Pedido" EntitySet="Pedido" />
             <End Role="PedidoDetalle" EntitySet="PedidoDetalle" />
           </AssociationSet>
-          <AssociationSet Name="FK__PedidoDet__idPro__32E0915F" Association="Self.FK__PedidoDet__idPro__32E0915F">
+          <AssociationSet Name="FK__PedidoDet__idPro__44FF419A" Association="Self.FK__PedidoDet__idPro__44FF419A">
             <End Role="Producto" EntitySet="Producto" />
             <End Role="PedidoDetalle" EntitySet="PedidoDetalle" />
           </AssociationSet>
-          <AssociationSet Name="FK__Producto__idCate__2D27B809" Association="Self.FK__Producto__idCate__2D27B809">
+          <AssociationSet Name="FK__Producto__idCate__403A8C7D" Association="Self.FK__Producto__idCate__403A8C7D">
             <End Role="Categoria" EntitySet="Categoria" />
             <End Role="Producto" EntitySet="Producto" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BD_DSW1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -226,7 +225,7 @@
           <Property Name="nom_prod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="pre_prod" Type="Decimal" Precision="11" Scale="2" Nullable="false" />
           <Property Name="sto_prod" Type="Int32" Nullable="false" />
-          <Property Name="img_prod" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="img_prod" Type="String" MaxLength="Max" FixedLength="false" />
           <Property Name="des_prod" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Categoria" Relationship="Self.FK__Producto__idCate__2D27B809" FromRole="Producto" ToRole="Categoria" />
           <NavigationProperty Name="PedidoDetalle" Relationship="Self.FK__PedidoDet__idPro__32E0915F" FromRole="Producto" ToRole="PedidoDetalle" />

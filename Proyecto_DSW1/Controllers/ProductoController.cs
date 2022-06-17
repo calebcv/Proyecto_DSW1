@@ -43,7 +43,7 @@ namespace Proyecto_DSW1.Controllers
         public ActionResult Create()
         {
             ViewBag.categorias = new SelectList(db.Categoria, "idCategoria", "nom_cat");
-            return View();
+            return View(new Producto());
         }
         [HttpPost]
         public ActionResult Create(Producto producto)
