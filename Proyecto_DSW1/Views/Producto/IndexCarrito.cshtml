@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Proyecto_DSW1.Models.Producto>
+
+@{
+    ViewBag.Tittle = "Index";
+}
+
+<h2 class="text-center">SELECCIONAR UN PRODUCTO</h2>
+
+<div class="container">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4" style="border:2px solid black">
+            <div style="text-align:center; border-bottom:2px solid maroon">
+                <h3>@item.des_prod</h3>
+            </div>
+
+            <div>
+                <div class="col-md-8">
+                    <img src="@Url.Content( item.img_prod)" alt="@item.des_prod" height="200px" width="200px" />
+                </div>
+                <div class="col-md-4">
+                    <b>CODIGO</b>
+                    <h5>@item.idProducto</h5>
+
+                    <b>CATEGORIA</b>
+                    <h5>@item.idCategoria</h5>
+
+                    <b>PRECIO</b>
+                    <h5>@String.Format("{0:C}", item.pre_prod)</h5>
+
+                    <b>STOCK</b>
+                    <h5>@item.sto_prod</h5>
+                </div>
+            </div>
+
+            <div class="col-md-4" style="font-size: 18px; border-top: 2px solid maroon; padding: 2px">
+                <b>Ingrese cantidad</b>
+            </div>
+            <div class="col-md-4" style="text-align:right; margin-top:10px; border-top: 2px solid maroon; padding: 2px">
+                <input type="number" class="form-control numbers" min="0" />
+            </div>
+            <div class="col-md-4" style="text-align:center;margin-bottom:10px ; margin-top:10px">
+                <a href="#" class="btn btn-primary agregar" style="color:white">ORDENAR</a>
+            </div>
+        </div>
+    }
+</div>
+@section Scripts
+{
+    <script>
+     $(function () {
+         $(".agregar").on("click", function (event) {
+             event.preventDefault();
+             var idProducto = $(this).parent().parent().find("h5:eq(0)").text();
+             var cantidad = $(this).parent().parent().find("input").val();
+
+             $.ajax(
+                 {
+                     url: "@Url.Action("AgregarCarrito", "Carrito")",
+                     data: { id: idProducto, cantidad: cantidad },
+                     type: "post",
+                     success: function (response) {
+                         window.location.href = "@Url.Action("AgregarCarrito", "Carrito")";
+                     },
+                     error: function (err, error) {
+                         alert(error + " " + idProducto + " " + cantidad);
+                     }
+                 }
+             );
+         });
+
+         $(".numbers").keydown(function (e) {
+
+             if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 40]) !== -1 ||
+                 (e.keyCode == 65 && e.ctrlKey === true) ||
+                 (e.keyCode >= 35 && e.keyCode <= 39)) {
+                 return;
+             }
+
+             if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                 e.preventDefault();
+             }
+         });
+
+     });
+    </script>
+}
