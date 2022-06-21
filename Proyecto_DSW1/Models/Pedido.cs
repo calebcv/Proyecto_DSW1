@@ -23,6 +23,9 @@ namespace Proyecto_DSW1.Models
         public int idPedido { get; set; }
         public Nullable<int> idCliente { get; set; }
         public Nullable<System.DateTime> fech_pedido { get; set; }
+        public Nullable<double> Subtotal { get; set; }
+        public Nullable<double> Iva { get; set; }
+        public Nullable<double> Total { get; set; }
     
         public virtual Cliente Cliente { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

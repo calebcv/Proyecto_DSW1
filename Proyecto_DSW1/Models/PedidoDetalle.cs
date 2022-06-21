@@ -17,8 +17,8 @@ namespace Proyecto_DSW1.Models
         public int idPedidoDet { get; set; }
         public Nullable<int> idProducto { get; set; }
         public Nullable<int> idPedido { get; set; }
-        public Nullable<int> cant_pedDetalle { get; set; }
-        public Nullable<decimal> total_pedDetalle { get; set; }
+        public Nullable<int> Cantidad { get; set; }
+        public Nullable<double> Total { get; set; }
     
         public virtual Pedido Pedido { get; set; }
         public virtual Producto Producto { get; set; }

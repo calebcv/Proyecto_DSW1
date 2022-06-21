@@ -188,7 +188,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="fotos\bannerLG.png" />
-    <Content Include="fotos\cocina1.jpg" />
+    <Content Include="fotos\cocina.jpg" />
     <Content Include="fotos\escritorio1.jpg" />
     <Content Include="fotos\laptop1.jpg" />
     <Content Include="fotos\lavadora1.jpg" />

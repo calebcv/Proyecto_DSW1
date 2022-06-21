@@ -23,13 +23,12 @@ namespace Proyecto_DSW1.Controllers
             return -1;
         }
 
-        [HttpPost]
-        public JsonResult AgregarCarrito(int id, int cantidad)
+        public ActionResult AgregarCarrito(int id)
         {
             if(Session["carrito"] == null)
             {
                 List<CarritoItem> compras = new List<CarritoItem>();
-                compras.Add(new CarritoItem(db.Producto.Find(id), cantidad));
+                compras.Add(new CarritoItem(db.Producto.Find(id), 1));
                 Session["carrito"] = compras;
             }
             else
@@ -37,17 +36,11 @@ namespace Proyecto_DSW1.Controllers
                 List<CarritoItem> compras = (List<CarritoItem>)Session["carrito"];
                 int IndexExistente = getIndex(id);
                 if (IndexExistente == -1)
-                    compras.Add(new CarritoItem(db.Producto.Find(id), cantidad));
+                    compras.Add(new CarritoItem(db.Producto.Find(id), 1));
                 else
-                    compras[IndexExistente].Cantidad += cantidad;
+                    compras[IndexExistente].Cantidad ++;
                 Session["carrito"] = compras;
             }
-            return Json(new { Response = true }, JsonRequestBehavior.AllowGet);
-        }
-
-        [HttpGet]
-        public ActionResult AgregarCarrito()
-        {
             return View();
         }
 

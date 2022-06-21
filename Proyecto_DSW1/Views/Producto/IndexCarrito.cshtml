@@ -41,7 +41,7 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
-<div class="container">
+<div class="container container-productos">
     @foreach (var item in Model)
     {
         <div class="producto-item">
@@ -57,8 +57,9 @@
                     <h3 class="product-name">@item.nom_prod</h3>
                     <span class="price" style="font-weight: 600">@String.Format("{0:C}", item.pre_prod) <span style="font-size: 12px">(Precio Iridium)</span></span>
                     <p class="price-normal">S/ 160.00 (Precio Normal)</p>
-                    @Html.ActionLink("Agregar al carrito", "AgregarCarrito", "Carrito", new { id = item.idProducto }, "")
-                    <a class="button add_to_cart_button" data-toggle="modal" data-target="#carrito">AGREGAR AL CARRITO</a>
+                    <div class="button">
+                        @Html.ActionLink("Agregar al carrito", "AgregarCarrito", "Carrito", new { id = item.idProducto }, "")
+                    </div>                                       
                 </div>
             </div>
             </div>
@@ -105,6 +106,7 @@
     </script>
 }
 <style>
+   
     .carousel-inner {
         height: 350px;
     }
@@ -144,14 +146,17 @@
         }
 
     /*Producto*/
+    .container-productos {
+        overflow:hidden;
+    }
     .producto-item{
         display:inline-block;
+        float:left;
     }
     .product-inner {
         margin: 10px;
         border: 2px solid black;
         border-radius: 15px;
-        display:inline-block;
     }
 
         .product-inner .product-thumb {
