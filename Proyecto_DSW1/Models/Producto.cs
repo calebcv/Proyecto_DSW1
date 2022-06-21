@@ -30,7 +30,7 @@ namespace Proyecto_DSW1.Models
         public decimal pre_prod { get; set; }
         [Required(ErrorMessage = "Ingrese Stock")]
         public int sto_prod { get; set; }
-        [Required(ErrorMessage = "Ingrese imagen")]
+        [Required(ErrorMessage = "Seleccione imagen")]
         public string img_prod { get; set; }
         [Required(ErrorMessage = "Ingrese una descripcion del Producto")]
         public string des_prod { get; set; }

@@ -14,6 +14,9 @@
             <th>CANTIDAD</th>
             <th>SUBTOTAL</th>
             <th>IMAGEN</th>
+            <th>
+
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -33,7 +36,7 @@
                     <td>@item.Cantidad</td>
                     <td>@String.Format("{0:C}", @item.Cantidad * @item.Producto.pre_prod)</td>
                     <td><img src="@Url.Content( item.Producto.img_prod)" alt="@item.Producto.des_prod" height="100" width="100" /></td>
-                    <td>@Html.ActionLink("Eliminar", "Delete", "Carrito", new { Id = item.Producto.idProducto }, null)</td>
+                    <td>@Html.ActionLink("Eliminar", "Delete", "Carrito", new { Id = Model.id_prod }, null)</td>
                 </tr>
             }
         }

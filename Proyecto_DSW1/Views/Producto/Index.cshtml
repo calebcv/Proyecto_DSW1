@@ -9,7 +9,7 @@
 <p>
     @Html.ActionLink("Nuevo producto", "Create", null, new { @class = "btn btn-primary" })
 </p>
-<table class="table table-bordered">
+<table class="table">
     <tr class="bg-primary">
         <th>
             @Html.DisplayNameFor(model => model.idProducto)
@@ -52,7 +52,7 @@
                 @Html.DisplayFor(modelItem => item.sto_prod)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.img_prod)
+                <img class="container-img" src="@Url.Content(item.img_prod)" alt="Photo" style="width:120px;height:70px" />
             </td>
             <td>
                 @Html.ActionLink("Modificar", "Edit", new { id = item.idProducto }) |
@@ -62,3 +62,17 @@
     }
 </table>
 <br />
+<style>
+
+    .container-img {
+        width: 120px;
+        height: 70px;
+    }
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+</style>

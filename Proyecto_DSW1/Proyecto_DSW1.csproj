@@ -187,9 +187,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Imagenes\laptop1.jpg" />
-    <Content Include="App_Data\Imagenes\lavadora1.jpg" />
-    <Content Include="App_Data\Imagenes\tv1.jpg" />
+    <Content Include="fotos\bannerLG.png" />
+    <Content Include="fotos\cocina1.jpg" />
+    <Content Include="fotos\escritorio1.jpg" />
+    <Content Include="fotos\laptop1.jpg" />
+    <Content Include="fotos\lavadora1.jpg" />
+    <Content Include="fotos\lentesRB1.jpg" />
+    <Content Include="fotos\lgxboom1.jpg" />
+    <Content Include="fotos\note20.jpg" />
+    <Content Include="fotos\relojg1.jpg" />
+    <Content Include="fotos\tablet1.jpg" />
+    <Content Include="fotos\tv1.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -255,6 +263,7 @@
     <Content Include="Views\Cliente\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Views\Clientes\" />
   </ItemGroup>
   <ItemGroup>
