@@ -53,7 +53,7 @@ namespace Proyecto_DSW1.Controllers
 
         public ActionResult FinalizarCompra()
         {
-            /*List<CarritoItem> compras = (List<CarritoItem>)Session["carrito"];
+            List<CarritoItem> compras = (List<CarritoItem>)Session["carrito"];
             if(compras != null && compras.Count > 0)
             {
                 Pedido nuevaVenta = new Pedido();
@@ -65,14 +65,14 @@ namespace Proyecto_DSW1.Controllers
                 nuevaVenta.PedidoDetalle = (from Producto in compras
                                          select new PedidoDetalle
                                          {
-                                             idProducto = Producto.Producto.idProducto,
-                                             cant_pedDetalle = Producto.Cantidad,
-                                             total_pedDetalle = Producto.Cantidad * Producto.Producto.pre_prod
+                                             idProducto = Producto.Producto.idProducto ,
+                                             Cantidad = Producto.Cantidad,
+                                             Total = Producto.Cantidad * Producto.Producto.pre_prod
                                          }).ToList();
                 db.Pedido.Add(nuevaVenta);
                 db.SaveChanges();
                 Session["carrito"] = new List<CarritoItem>();            
-            }*/
+            }
             return View();
         }
 

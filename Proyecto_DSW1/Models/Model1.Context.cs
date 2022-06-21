@@ -31,10 +31,10 @@ namespace Proyecto_DSW1.Models
         public virtual DbSet<Cliente> Cliente { get; set; }
         public virtual DbSet<Distrito> Distrito { get; set; }
         public virtual DbSet<Pedido> Pedido { get; set; }
-        public virtual DbSet<Producto> Producto { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<PedidoDetalle> PedidoDetalle { get; set; }
+        public virtual DbSet<Producto> Producto { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

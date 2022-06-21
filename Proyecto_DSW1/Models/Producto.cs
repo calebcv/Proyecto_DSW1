@@ -23,7 +23,7 @@ namespace Proyecto_DSW1.Models
         public int idProducto { get; set; }
         public Nullable<int> idCategoria { get; set; }
         public string nom_prod { get; set; }
-        public decimal pre_prod { get; set; }
+        public double pre_prod { get; set; }
         public int sto_prod { get; set; }
         public string img_prod { get; set; }
         public string des_prod { get; set; }
