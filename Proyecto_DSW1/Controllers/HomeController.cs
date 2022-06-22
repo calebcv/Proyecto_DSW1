@@ -4,9 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Proyecto_DSW1.Models;
+using Proyecto_DSW1.Permisos;
 
 namespace Proyecto_DSW1.Controllers
 {
+    [ValidarSesion]
     public class HomeController : Controller
     {
         BD_DSW1Entities db = new BD_DSW1Entities();

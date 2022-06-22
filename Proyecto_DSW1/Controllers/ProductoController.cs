@@ -12,9 +12,11 @@ using System.Web.Helpers;
 using System.IO;
 using System.Drawing;
 using System.Drawing.Imaging;
+using Proyecto_DSW1.Permisos;
 
 namespace Proyecto_DSW1.Controllers
 {
+    [ValidarSesion]
     public class ProductoController : Controller
     {
         // GET: Producto

@@ -17,5 +17,9 @@ namespace Proyecto_DSW1.Models
         public int idUsuario { get; set; }
         public string nom_usu { get; set; }
         public string clave_usu { get; set; }
+
+
+        /*Nueva propiedad*/
+        public string ConfirmarClave { get; set; }
     }
 }
