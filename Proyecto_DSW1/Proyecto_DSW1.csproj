@@ -204,7 +204,9 @@
     <Content Include="fotos\bannerLG.png" />
     <Content Include="fotos\cocina.jpg" />
     <Content Include="fotos\escritorio1.jpg" />
+    <Content Include="fotos\escritorio2.jpg" />
     <Content Include="fotos\laptop1.jpg" />
+    <Content Include="fotos\laptop2.jpg" />
     <Content Include="fotos\lavadora1.jpg" />
     <Content Include="fotos\lentesRB1.jpg" />
     <Content Include="fotos\lgxboom1.jpg" />

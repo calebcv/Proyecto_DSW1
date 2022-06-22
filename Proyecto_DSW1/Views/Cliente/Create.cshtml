@@ -16,16 +16,16 @@
         <h4 style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Datos de Cliente</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.idDistrito, "idDistrito", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("idDistrito", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.idDistrito, "", new { @class = "text-danger" })
-            </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Distrito</label>
+        <div class="col-md-10">
+            @Html.DropDownList("idDistrito", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.idDistrito, "", new { @class = "text-danger" })
         </div>
+    </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.dni_clie, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">DNI</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.dni_clie, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.dni_clie, "", new { @class = "text-danger" })
@@ -33,7 +33,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.nom_cli, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">Nombre</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.nom_cli, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.nom_cli, "", new { @class = "text-danger" })
@@ -41,7 +41,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ape_cli, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">Apellido</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ape_cli, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ape_cli, "", new { @class = "text-danger" })
@@ -49,7 +49,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.mail_cli, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">Correo</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.mail_cli, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.mail_cli, "", new { @class = "text-danger" })
@@ -57,7 +57,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.tel_cli, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">Telefono</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.tel_cli, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.tel_cli, "", new { @class = "text-danger" })
