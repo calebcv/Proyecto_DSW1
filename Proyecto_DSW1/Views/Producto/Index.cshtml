@@ -1,36 +1,37 @@
 ﻿@model IEnumerable<Proyecto_DSW1.Models.Producto>
 
 @{
-    ViewBag.Title = "Index";    
+    ViewBag.Title = "MANTENIMIENTO PRODUCTO";
 }
+<body  style="background-color: #42413D" >
 
-<h2 class="text-center">Listado - Manteniento de Productos</h2>
+    <h2 class="text-center" style="color:whitesmoke ;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">MANTENIMIENTO DE PRODUCTOS</h2>
 
 <p>
-    @Html.ActionLink("Nuevo producto", "Create", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("AGREGAR PRODUCTO", "Create", null, new { @class = "btn btn-primary" })
 </p>
-<table class="table">
-    <tr class="bg-primary">
+<table class="table" style="background-color: #42413D; border-radius: 10px ">
+    <tr>
         <th>
-            @Html.DisplayNameFor(model => model.idProducto)
+            CODIGO
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Categoria.nom_cat)
+            CATEGORIA
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.nom_prod)
+            NOMBRE
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.pre_prod)
+            PRECIO
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.sto_prod)
+            STOCK
         </th>
 
         <th>
-            @Html.DisplayNameFor(model => model.img_prod)
+            IMAGEN
         </th>
-        <th></th>
+        <th>MODIFICAR</th>
     </tr>
 
     @foreach (var item in Model)
@@ -55,18 +56,21 @@
                 <img class="container-img" src="@Url.Content(item.img_prod)" alt="Photo" style="width:120px;height:70px" />
             </td>
             <td>
-                @Html.ActionLink("Modificar", "Edit", new { id = item.idProducto }) |
-                @Html.ActionLink("X", "Delete", new { id = item.idProducto })
+                @Html.ActionLink("MODIFICAR", "Edit", new { id = item.idProducto }) |
+                @Html.ActionLink("ELIMINAR", "Delete", new { id = item.idProducto })
             </td>
         </tr>
     }
 </table>
 <br />
+</body>
+
 <style>
 
     .container-img {
         width: 120px;
         height: 70px;
+        border-radius:10px;
     }
 
 .container {
@@ -75,4 +79,19 @@
     margin-right: auto;
     margin-left: auto;
 }
+    th {
+        text-align: center;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color: whitesmoke;
+    }
+
+    td {
+        text-align: center;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color: whitesmoke;
+    }
+
+    .texto {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    }
 </style>

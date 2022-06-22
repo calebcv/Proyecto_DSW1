@@ -3,33 +3,36 @@
 @{
     ViewBag.Title = "Index";
 }
+<body style="background-color: #42413D" >
 
-<h2 class="text-center">Listado - Mantenimiento de Clientes</h2>
+<h2 class="text-center" style="color:whitesmoke ;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">MANTENIMIENTO DE CLIENTES</h2>
 
 <p>
-    @Html.ActionLink("Nuevo cliente", "Create", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("AGREGAR CLIENTE", "Create", null, new { @class = "btn btn-primary" })
 </p>
-<table class="table table-bordered">
-    <tr class="bg-primary">
+<table class="table" style="background-color: #42413D; border-radius: 10px ">
+    <tr>
         <th>
-            @Html.DisplayNameFor(model => model.dni_clie)
+            DNI
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.nom_cli)
+            NOMBRE
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ape_cli)
+            APELLIDO
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.mail_cli)
+            CORREO
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.tel_cli)
+            TELEFONO
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Distrito.nom_dis)
+            DISTRITO
         </th>
-        <th></th>
+        <th>
+            MODIFICAR
+        </th>
     </tr>
 
     @foreach (var item in Model)
@@ -53,12 +56,44 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Distrito.nom_dis)
             </td>
-            <td>
-                @Html.ActionLink("Editar", "Edit", new { id = item.idCliente }) |
-                @Html.ActionLink("Info", "Details", new { id = item.idCliente }) |
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.idCliente })
+            <td>              
+                @Html.ActionLink("EDITAR", "Edit", new { id = item.idCliente })  |
+                @Html.ActionLink("INFO", "Details", new { id = item.idCliente })  |
+                @Html.ActionLink("ELIMINAR", "Delete", new { id = item.idCliente })
             </td>
         </tr>
     }
 
 </table>
+</body>
+<style>
+
+    .container-img {
+        width: 120px;
+        height: 70px;
+        border-radius: 10px;
+    }
+
+    .container {
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    th {
+        text-align: center;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color: whitesmoke;
+    }
+
+    td {
+        text-align: center;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color: whitesmoke;
+    }
+
+    .texto {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    }
+</style>
