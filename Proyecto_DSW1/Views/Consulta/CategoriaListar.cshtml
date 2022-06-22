@@ -3,8 +3,9 @@
 @{
     ViewBag.Title = "CategoriaListar";
 }
+<body style="background-color: #F39C12 ">
 
-<h2 class="text-center">CONSULTA POR CATEGORIA</h2>
+<h2 class="text-center"style="color:whitesmoke ;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">CONSULTA POR CATEGORIA</h2>
 
 @*<p>
     @Html.ActionLink("Create New", "Create")
@@ -12,24 +13,24 @@
 <br />
 @using (Html.BeginForm())
 {
-    <strong>Seleccione  Categoria</strong>
-    <input type="text" name="nom_cat" value="@ViewBag.nom_cat" />
-    <input type="submit" value="Consultar" class="btn btn-success" />
+    <strong class="texto" style="color:whitesmoke">Ingrese  Categoria :  </strong>
+    <input class="texto" type="text" name="nom_cat" value="@ViewBag.nom_cat" placeholder="Buscar" style="border-radius:8px; border-color:whitesmoke"/>
+    <input  type="submit" value="Consultar" class="btn btn-success" style="background-color: black;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"/>
 }
 <br />
-<table class="table">
+<table class="table" style="background-color: #ECF0F1; border-radius: 10px ">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.nom_prod)
+        <th >
+            Produto
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.nom_cat)
+            Categoría
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.sto_prod)
+            Stock 
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.pre_prod)
+            Precio
         </th>
         <th></th>
     </tr>
@@ -58,3 +59,17 @@
     }
 
 </table>
+</body>
+<style>
+    th {
+        text-align: center;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    }
+    td {
+        text-align: center;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    }
+    .texto {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    }
+</style>
