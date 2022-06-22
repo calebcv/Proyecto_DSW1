@@ -19,23 +19,21 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("ECOMMERCE", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("ECOMMERCE", "IndexCarrito", "Producto", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">@Html.ActionLink("Productos", "IndexCarrito", "Producto")</li>
-                    <li>@Html.ActionLink("Index", "Index", "Home")</li>
                     <li>@Html.ActionLink("Carrito", "AgregarCarrito", "Carrito")</li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mantenimientos<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Productos", "Index", "Producto")</li>
-                            <li>@Html.ActionLink("Clientes", "Index", "Cliente")</a></li>
-                            <li><a href="#">Lorem</a></li>
                             <li role="separator" class="divider"></li>
-                            <li class="dropdown-header">Otros</li>
-                            <li><a href="#">LoremLorem</a></li>
-                            <li><a href="#">LoremLorem</a></li>
+                            <li class="dropdown-header">Productos</li>
+                            <li>@Html.ActionLink("Productos", "Index", "Producto")</li>
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">Clientes</li>
+                            <li>@Html.ActionLink("Clientes", "Index", "Cliente")</a></li>
                         </ul>
                     </li>
                 </ul>               
