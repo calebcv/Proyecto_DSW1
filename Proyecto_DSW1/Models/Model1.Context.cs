@@ -178,5 +178,10 @@ namespace Proyecto_DSW1.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("sp_validarUsuario", nombreParameter, claveParameter);
         }
+    
+        public virtual ObjectResult<usp_ProductoListar1_Result> usp_ProductoListar1()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ProductoListar1_Result>("usp_ProductoListar1");
+        }
     }
 }

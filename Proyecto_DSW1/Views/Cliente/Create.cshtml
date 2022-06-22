@@ -3,16 +3,17 @@
 @{
     ViewBag.Title = "Create";
 }
+<body style="background-color: #CACFD2">
 
-<h2 class="text-center">AGREGAR NUEVO CLIENTE</h2>
+<h2 class="text-center" style="color:lightslategray ;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">AGREGAR NUEVO CLIENTE</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Datos de Cliente</h4>
+        <h4 style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Datos de Cliente</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -65,7 +66,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Agregar Cliente" class="btn btn-default" />
+                <input type="submit" value="Agregar Cliente" class="btn btn-success" />
                 @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-danger" })
             </div>
         </div>
@@ -73,8 +74,10 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("REGRESAR", "Index", null, new { @class = "btn btn-warning" })
 </div>
+    <br />
+</body>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
