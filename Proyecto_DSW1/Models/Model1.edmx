@@ -79,11 +79,11 @@
           <Key>
             <PropertyRef Name="idUsuario" />
           </Key>
-          <Property Name="idUsuario" Type="int" Nullable="false" />
-          <Property Name="nom_usu" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="clave_usu" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom_usu" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="clave_usu" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Cliente__idDistr__300424B4">
+        <Association Name="FK__Cliente__idDistr__286302EC">
           <End Role="Distrito" Type="Self.Distrito" Multiplicity="0..1" />
           <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
           <ReferentialConstraint>
@@ -177,7 +177,6 @@
         <Function Name="usp_CategoriaNombre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="nomcategoria" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="usp_ProductoListar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="BD_DSW1ModelStoreContainer">
           <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
@@ -187,7 +186,7 @@
           <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Cliente__idDistr__300424B4" Association="Self.FK__Cliente__idDistr__300424B4">
+          <AssociationSet Name="FK__Cliente__idDistr__286302EC" Association="Self.FK__Cliente__idDistr__286302EC">
             <End Role="Distrito" EntitySet="Distrito" />
             <End Role="Cliente" EntitySet="Cliente" />
           </AssociationSet>
@@ -261,8 +260,8 @@
             <PropertyRef Name="idUsuario" />
           </Key>
           <Property Name="idUsuario" Type="Int32" Nullable="false" />
-          <Property Name="nom_usu" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="clave_usu" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nom_usu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="clave_usu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <Association Name="FK__Cliente__idDistr__286302EC">
           <End Role="Distrito" Type="Self.Distrito" Multiplicity="0..1" />
@@ -563,16 +562,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="usp_ProductoListar" FunctionName="BD_DSW1Model.Store.usp_ProductoListar">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="BD_DSW1Model.usp_ProductoListar_Result">
-                <ScalarProperty Name="nom_prod" ColumnName="nom_prod" />
-                <ScalarProperty Name="nom_cat" ColumnName="nom_cat" />
-                <ScalarProperty Name="sto_prod" ColumnName="sto_prod" />
-                <ScalarProperty Name="pre_prod" ColumnName="pre_prod" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="usp_CategoriaNombre" FunctionName="BD_DSW1Model.Store.usp_CategoriaNombre">
             <ResultMapping>
               <ComplexTypeMapping TypeName="BD_DSW1Model.usp_CategoriaNombre_Result">
