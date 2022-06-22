@@ -11,7 +11,8 @@ namespace Proyecto_DSW1.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Producto
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,10 +23,16 @@ namespace Proyecto_DSW1.Models
     
         public int idProducto { get; set; }
         public Nullable<int> idCategoria { get; set; }
+        [Required(ErrorMessage = "Ingrese nombre producto")]
         public string nom_prod { get; set; }
+
+        [Required(ErrorMessage = "Ingrese precio")]
         public double pre_prod { get; set; }
+        [Required(ErrorMessage = "Ingrese stock")]
         public int sto_prod { get; set; }
+        [Required(ErrorMessage = "Ingrese Imagen")]
         public string img_prod { get; set; }
+        [Required(ErrorMessage = "Ingrese descripcion de producto")]
         public string des_prod { get; set; }
     
         public virtual Categoria Categoria { get; set; }

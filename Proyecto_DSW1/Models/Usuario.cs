@@ -11,15 +11,19 @@ namespace Proyecto_DSW1.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Usuario
     {
         public int idUsuario { get; set; }
+        [Required(ErrorMessage ="Nombre de usuario requerido")]
         public string nom_usu { get; set; }
+        [Required(ErrorMessage = "Clave requerida")]
         public string clave_usu { get; set; }
 
 
         /*Nueva propiedad*/
+        [Required(ErrorMessage = "Confirme clave")]
         public string ConfirmarClave { get; set; }
     }
 }

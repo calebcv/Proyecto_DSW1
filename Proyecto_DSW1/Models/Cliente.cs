@@ -11,7 +11,8 @@ namespace Proyecto_DSW1.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Cliente
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,10 +23,15 @@ namespace Proyecto_DSW1.Models
     
         public int idCliente { get; set; }
         public Nullable<int> idDistrito { get; set; }
+        [Required(ErrorMessage = "Ingrese DNI")]
         public string dni_clie { get; set; }
+        [Required(ErrorMessage = "Ingrese nombre")]
         public string nom_cli { get; set; }
+        [Required(ErrorMessage = "Ingrese apellido")]
         public string ape_cli { get; set; }
+        [Required(ErrorMessage = "Ingrese correo electronico")]
         public string mail_cli { get; set; }
+        [Required(ErrorMessage = "Ingrese telefono")]
         public string tel_cli { get; set; }
     
         public virtual Distrito Distrito { get; set; }
