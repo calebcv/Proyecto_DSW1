@@ -152,5 +152,31 @@ namespace Proyecto_DSW1.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_CategoriaNombre_Result>("usp_CategoriaNombre", nomcategoriaParameter);
         }
+    
+        public virtual int sp_RegistrarUsuario(string nombre, string clave, ObjectParameter registrado, ObjectParameter mensaje)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var claveParameter = clave != null ?
+                new ObjectParameter("clave", clave) :
+                new ObjectParameter("clave", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_RegistrarUsuario", nombreParameter, claveParameter, registrado, mensaje);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> sp_validarUsuario(string nombre, string clave)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var claveParameter = clave != null ?
+                new ObjectParameter("clave", clave) :
+                new ObjectParameter("clave", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("sp_validarUsuario", nombreParameter, claveParameter);
+        }
     }
 }

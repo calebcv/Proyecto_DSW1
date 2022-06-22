@@ -168,12 +168,22 @@
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
         </Function>
+        <Function Name="sp_RegistrarUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="clave" Type="varchar" Mode="In" />
+          <Parameter Name="registrado" Type="bit" Mode="InOut" />
+          <Parameter Name="mensaje" Type="varchar" Mode="InOut" />
+        </Function>
         <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
           <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_validarUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="clave" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="usp_CategoriaNombre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="nomcategoria" Type="varchar" Mode="In" />
         </Function>
@@ -349,6 +359,16 @@
           <FunctionImport Name="usp_ProductoListar" ReturnType="Collection(BD_DSW1Model.usp_ProductoListar_Result)" />
           <FunctionImport Name="usp_CategoriaNombre" ReturnType="Collection(BD_DSW1Model.usp_CategoriaNombre_Result)">
           <Parameter Name="nomcategoria" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RegistrarUsuario">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="clave" Mode="In" Type="String" />
+            <Parameter Name="registrado" Mode="InOut" Type="Boolean" />
+            <Parameter Name="mensaje" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_validarUsuario" ReturnType="Collection(Int32)">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="clave" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="sysdiagrams">
@@ -572,6 +592,8 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_RegistrarUsuario" FunctionName="BD_DSW1Model.Store.sp_RegistrarUsuario" />
+          <FunctionImportMapping FunctionImportName="sp_validarUsuario" FunctionName="BD_DSW1Model.Store.sp_validarUsuario" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
