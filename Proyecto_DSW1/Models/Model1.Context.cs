@@ -138,5 +138,19 @@ namespace Proyecto_DSW1.Models
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
         }
+    
+        public virtual ObjectResult<usp_ProductoListar_Result> usp_ProductoListar()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ProductoListar_Result>("usp_ProductoListar");
+        }
+    
+        public virtual ObjectResult<usp_CategoriaNombre_Result> usp_CategoriaNombre(string nomcategoria)
+        {
+            var nomcategoriaParameter = nomcategoria != null ?
+                new ObjectParameter("nomcategoria", nomcategoria) :
+                new ObjectParameter("nomcategoria", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_CategoriaNombre_Result>("usp_CategoriaNombre", nomcategoriaParameter);
+        }
     }
 }

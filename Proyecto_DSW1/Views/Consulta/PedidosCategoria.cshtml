@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Proyecto_DSW1.Models.Categoria>
+
+@{
+    ViewBag.Title = "PedidosCategoria";
+}
+
+<h2 class="text-center">PedidosCategoria</h2>
+<br />
+@using (Html.BeginForm())
+            {
+                <strong>Seleccione Cliente</strong>
+                @Html.DropDownList("nom_cat",(SelectList)ViewBag.Categoria)
+                <br />
+                <input type="submit" value="Consultar..." class="btn btn-success"/>
+            }
+<br />
+<p>
+    @Html.ActionLink("INICIO", "Home")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idCategoria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nom_cat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.des_Cat)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idCategoria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nom_cat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.des_Cat)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

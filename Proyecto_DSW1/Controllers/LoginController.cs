@@ -10,7 +10,6 @@ namespace Proyecto_DSW1.Controllers
     public class LoginController : Controller
     {
         // GET: Login
-        static string cadena = "Data Source=.;Initial Catalog=DB_DW1;UserID=sa;Password=sql";
 
         BD_DSW1Entities db = new BD_DSW1Entities();
 

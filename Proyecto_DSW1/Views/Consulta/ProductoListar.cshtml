@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Proyecto_DSW1.Models.usp_ProductoListar_Result>
+
+@{
+    ViewBag.Title = "ProductoListar";
+}
+
+<h2 class="text-center">ProductoListar</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nom_prod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nom_cat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sto_prod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pre_prod)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nom_prod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nom_cat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sto_prod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pre_prod)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
