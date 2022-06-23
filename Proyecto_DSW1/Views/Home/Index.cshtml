@@ -19,6 +19,7 @@
                 <img class="banner-img" src="~/fotos/bannerLaptop.jpg" alt="...">
             </div>
         </div>
+        <br />
 
         <!-- Controls -->
         <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
@@ -36,16 +37,16 @@
             <div class="producto-item">
                 <div class="product-inner">
                     <div class="product-thumb has-back-image">
-                        <img src="@Url.Content( item.img_prod)" alt="@item.des_prod" />
+                        <img style="border-radius:10px" src="@Url.Content( item.img_prod)" alt="@item.des_prod" />
                         <div class="gorup-button">
                             <a href="detail-prod.html" class="quick-view"><i class="fa fa-search"></i></a>
                         </div>
                     </div>
                     <div class="product-info">
-                        <p class="text-uppercase marca">@item.Categoria.nom_cat</p>
                         <h3 class="product-name">@item.nom_prod</h3>
-                        <span class="price" style="font-weight: 600">@String.Format("{0:C}", item.pre_prod)</span>
-                        <p class="price-normal">Stock: @item.sto_prod</p>
+                        <p class="text-uppercase marca" style="font-size:13px">@item.Categoria.nom_cat</p>
+                        <span class="price" style="font-size:20px;font-weight: 600">@String.Format("{0:C}", item.pre_prod)</span>
+                        <p class="price-normal" style="font-size:12px">Stock: @item.sto_prod</p>
                         <div class="button">
                             @Html.ActionLink("Agregar al carrito", "AgregarCarrito", "Carrito", new { id = item.idProducto }, "")
                         </div>
@@ -102,8 +103,8 @@
     }
 
     img {
-        max-width: 200px;
-        max-height: 200px;
+        max-width: 270px;
+        max-height: 350px;
         vertical-align: middle;
     }
 
@@ -138,11 +139,13 @@
     .producto-item {
         display: inline-block;
         float: left;
+        background-color:whitesmoke;
+        margin:1% 3%;
+        padding:5px
     }
 
     .product-inner {
         margin: 10px;
-        border: 2px solid black;
         border-radius: 15px;
     }
 
@@ -160,6 +163,7 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            text-align:center
         }
 
     th {
