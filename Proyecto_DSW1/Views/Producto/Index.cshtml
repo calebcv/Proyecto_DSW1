@@ -58,8 +58,8 @@
                 <img class="container-img" src="@Url.Content(item.img_prod)" alt="Photo" style="width:120px;height:70px" />
             </td>
             <td>
-                @Html.ActionLink("MODIFICAR", "Edit", new { id = item.idProducto }) |
-                @Html.ActionLink("ELIMINAR", "Delete", new { id = item.idProducto })
+                @Html.ActionLink("MODIFICAR", "Edit", new { id = item.idProducto }, new { @class = "btn btn-success" }) |
+                @Html.ActionLink("ELIMINAR", "Delete", new { id = item.idProducto }, new { @class = "btn btn-danger" })
             </td>
         </tr>
     }

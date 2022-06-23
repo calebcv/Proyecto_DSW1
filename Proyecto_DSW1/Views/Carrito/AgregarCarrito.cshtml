@@ -1,55 +1,89 @@
 ﻿@{
     ViewBag.Tittle = "AgregarCarrito";
 }
+<body style="background-color: #42413D">
 
-<h2 class="text-center">CARRITO DE VENTA</h2>
-<br />
-<table class="table">
-    <thead>
-        <tr>
-            <th>CODIGO</th>
-            <th>DESCRIPCION</th>
-            <th>CATEGORIA</th>
-            <th>PRECIO</th>
-            <th>CANTIDAD</th>
-            <th>SUBTOTAL</th>
-            <th>IMAGEN</th>
-            <th>
+    <h2 class="text-center" style="color:whitesmoke ;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">CARRITO</h2>
 
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @{
-            double total = 0;
-        }
-        @if (Session["carrito"] != null)
-        {
-            foreach (var item in Session["carrito"] as List<Proyecto_DSW1.Models.CarritoItem>)
-            {
-                total += (double)(item.Cantidad * item.Producto.pre_prod);
-                <tr>
-                    <td>@item.Producto.idProducto</td>
-                    <td>@item.Producto.des_prod</td>
-                    <td>@item.Producto.idCategoria</td>
-                    <td>@String.Format("{0:C}", @item.Producto.pre_prod)</td>
-                    <td>@item.Cantidad</td>
-                    <td>@String.Format("{0:C}", @item.Cantidad * @item.Producto.pre_prod)</td>
-                    <td><img src="@Url.Content( item.Producto.img_prod)" alt="@item.Producto.des_prod" height="100" width="100" /></td>
-                    <td>@Html.ActionLink("Eliminar", "Delete", "Carrito", new { Id = item.Producto.idProducto }, null)</td>
-                </tr>
+    <br />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>CODIGO</th>
+                <th>DESCRIPCION</th>
+                <th>CATEGORIA</th>
+                <th>PRECIO</th>
+                <th>CANTIDAD</th>
+                <th>SUBTOTAL</th>
+                <th>IMAGEN</th>
+                <th>
+
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                double total = 0;
             }
-        }
-    </tbody>
-    <tr></tr>
-    <tfoot>
+            @if (Session["carrito"] != null)
+            {
+                foreach (var item in Session["carrito"] as List<Proyecto_DSW1.Models.CarritoItem>)
+                {
+                    total += (double)(item.Cantidad * item.Producto.pre_prod);
+                    <tr>
+                        <td>@item.Producto.idProducto</td>
+                        <td>@item.Producto.des_prod</td>
+                        <td>@item.Producto.idCategoria</td>
+                        <td>@String.Format("{0:C}", @item.Producto.pre_prod)</td>
+                        <td>@item.Cantidad</td>
+                        <td>@String.Format("{0:C}", @item.Cantidad * @item.Producto.pre_prod)</td>
+                        <td><img src="@Url.Content( item.Producto.img_prod)" alt="@item.Producto.des_prod" height="100" width="100" /></td>
+                        <td>@Html.ActionLink("Eliminar", "Delete", "Carrito", new { Id = item.Producto.idProducto }, new { @class = "btn btn-danger" })</td>
+                    </tr>
+                }
+            }
+        </tbody>
         <tr></tr>
-        <tr>
-            <th colspan="4">TOTAL A PAGAR</th>
-            <th>@String.Format("{0:C}", total)</th>
-        </tr>
-    </tfoot>
-</table>
-<br />
-@Html.ActionLink("SEGUIR COMPRANDO", "IndexCarrito", "Producto", null, null) |
-@Html.ActionLink("TERMINAR COMPRA", "FinalizarCompra", "Carrito", null, null)
+        <tfoot>
+            <tr></tr>
+            <tr>
+                <th colspan="4">TOTAL A PAGAR</th>
+                <th>@String.Format("{0:C}", total)</th>
+            </tr>
+        </tfoot>
+    </table>
+    <br />
+    @Html.ActionLink("SEGUIR COMPRANDO", "IndexCarrito", "Producto", null, new { @class = "btn btn-success" })
+    @Html.ActionLink("TERMINAR COMPRA", "FinalizarCompra", "Carrito", null, new { @class = "btn btn-danger" })
+</body>
+<style>
+
+    .container-img {
+        width: 120px;
+        height: 70px;
+        border-radius: 10px;
+    }
+
+    .container {
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    th {
+        text-align: center;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color: whitesmoke;
+    }
+
+    td {
+        text-align: center;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color: whitesmoke;
+    }
+
+    .texto {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    }
+</style>

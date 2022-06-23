@@ -3,15 +3,16 @@
 @{
     ViewBag.Title = "Details";
 }
+<body style="background-color: #42413D ">
 
-<h2 class="text-center">Detalles del Cliente</h2>
+<h2 class="text-center" style="color:whitesmoke ;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Información de @Html.DisplayFor(model => model.nom_cli) @Html.DisplayFor(model => model.ape_cli)</h2>
 
 <div>
-    <h4>Datos del Cliente</h4>
+    <h4 class="texto" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Datos del Cliente</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.dni_clie)
+            DNI
         </dt>
 
         <dd>
@@ -19,7 +20,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.nom_cli)
+            NOMBRE
         </dt>
 
         <dd>
@@ -27,7 +28,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ape_cli)
+            APELLIDO
         </dt>
 
         <dd>
@@ -35,7 +36,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.mail_cli)
+            CORREO
         </dt>
 
         <dd>
@@ -43,7 +44,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.tel_cli)
+            TELEFONO
         </dt>
 
         <dd>
@@ -51,7 +52,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Distrito.nom_dis)
+            DISTRITO
         </dt>
 
         <dd>
@@ -61,6 +62,24 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Editar", "Edit", new { id = Model.idCliente }) |
-    @Html.ActionLink("Volver al listado", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.idCliente }, new { @class = "btn btn-success" }) |
+    @Html.ActionLink("Volver al listado", "Index",null, new { @class = "btn btn-warning" })
 </p>
+</body>
+<style>
+    dd {
+        text-align: left;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color: whitesmoke;
+    }
+
+    dt {
+        text-align: center;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color: whitesmoke;
+    }
+    .texto {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color:whitesmoke
+    }
+</style>

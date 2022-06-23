@@ -3,8 +3,9 @@
 @{
     ViewBag.Title = "Edit";
 }
+<body style="background-color: #42413D">
 
-<h2 class=" text-center">Editar Producto</h2>
+<h2 class="text-center" style="color:whitesmoke ;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">EDITAR CLIENTE</h2>
 
 
 @using (Html.BeginForm())
@@ -12,7 +13,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Datos del Cliente</h4>
+        <h4 style="color:whitesmoke ;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Datos del Cliente</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.idCliente)
@@ -74,7 +75,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Guardar Cambios" class="btn btn-default" />
+                <input type="submit" value="Guardar Cambios" class="btn btn-success" />
                 @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-danger" })
             </div>
         </div>
@@ -82,8 +83,10 @@
 }
 
 <div>
-    @Html.ActionLink("Volver al listado - Clientes", "Index")
+    @Html.ActionLink("REGRESAR", "Index", null, new { @class = "btn btn-warning" })
 </div>
+<br />
+</body>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

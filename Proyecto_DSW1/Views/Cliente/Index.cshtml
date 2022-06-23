@@ -57,9 +57,9 @@
                 @Html.DisplayFor(modelItem => item.Distrito.nom_dis)
             </td>
             <td>              
-                @Html.ActionLink("EDITAR", "Edit", new { id = item.idCliente })  |
-                @Html.ActionLink("INFO", "Details", new { id = item.idCliente })  |
-                @Html.ActionLink("ELIMINAR", "Delete", new { id = item.idCliente })
+                @Html.ActionLink("EDITAR", "Edit", new { id = item.idCliente }, new { @class = "btn btn-success" })  
+                @Html.ActionLink("INFO", "Details", new { id = item.idCliente }, new { @class = "btn btn-warning" })  
+                @Html.ActionLink("ELIMINAR", "Delete", new { id = item.idCliente }, new { @class = "btn btn-danger" })
             </td>
         </tr>
     }
