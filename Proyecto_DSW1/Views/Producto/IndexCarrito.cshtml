@@ -3,59 +3,59 @@
 @{
     ViewBag.Tittle = "Index";
 }
+<body style="background-color: #42413D">
 
-<h2 class="text-center">SELECCIONAR UN PRODUCTO</h2>
-<!-- SLIDER -->
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
+    <h2 class="text-center" style="font-size:100px ;color:whitesmoke ;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">STORE</h2>
+    <!-- SLIDER -->
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img class="banner-img" src="~/fotos/bannerLG.png" alt="...">
+            </div>
+            <div class="item">
+                <img class="banner-img" src="~/fotos/bannerLaptop.jpg" alt="...">
+            </div>
+        </div>
 
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <img class="banner-img" src="~/fotos/bannerLG.png" alt="...">
-        </div>
-        <div class="item">
-            <img class="banner-img" src="~/fotos/bannerLaptop.jpg" alt="...">
-        </div>
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
-
-    <!-- Controls -->
-    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div>
-<div class="container container-productos">
-    @foreach (var item in Model)
-    {
-        <div class="producto-item">
-            <div class="product-inner">
-                <div class="product-thumb has-back-image">
-                    <img src="@Url.Content( item.img_prod)" alt="@item.des_prod" />
-                    <div class="gorup-button">
-                        <a href="detail-prod.html" class="quick-view"><i class="fa fa-search"></i></a>
+    <div class="container container-productos">
+        @foreach (var item in Model)
+        {
+            <div class="producto-item">
+                <div class="product-inner">
+                    <div class="product-thumb has-back-image">
+                        <img src="@Url.Content( item.img_prod)" alt="@item.des_prod" />
+                        <div class="gorup-button">
+                            <a href="detail-prod.html" class="quick-view"><i class="fa fa-search"></i></a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <p class="text-uppercase marca">@item.Categoria.nom_cat</p>
+                        <h3 class="product-name">@item.nom_prod</h3>
+                        <span class="price" style="font-weight: 600">@String.Format("{0:C}", item.pre_prod)</span>
+                        <p class="price-normal">Stock: @item.sto_prod</p>
+                        <div class="button">
+                            @Html.ActionLink("Agregar al carrito", "AgregarCarrito", "Carrito", new { id = item.idProducto }, "")
+                        </div>
                     </div>
                 </div>
-                <div class="product-info">
-                    <p class="text-uppercase marca">@item.Categoria.nom_cat</p>
-                    <h3 class="product-name">@item.nom_prod</h3>
-                    <span class="price" style="font-weight: 600">@String.Format("{0:C}", item.pre_prod) <span style="font-size: 12px">(Precio Iridium)</span></span>
-                    <p class="price-normal">S/ 160.00 (Precio Normal)</p>
-                    <div class="button">
-                        @Html.ActionLink("Agregar al carrito", "AgregarCarrito", "Carrito", new { id = item.idProducto }, "")
-                    </div>                                       
-                </div>
             </div>
-            </div>
-    }
-</div>
-@section Scripts
+        }
+    </div>
+    @section Scripts
 {
-    <script>
+        <script>
      $(function () {
          $(".agregar").on("click", function (event) {
              event.preventDefault();
@@ -91,8 +91,9 @@
          });
 
      });
-    </script>
-}
+        </script>
+    }
+</body>
 <style>
     .banner-img {
         width: 100%;
@@ -141,20 +142,34 @@
         border-radius: 15px;
     }
 
-        .product-inner .product-thumb {
+    .product-inner .product-thumb {
             position: relative;
         }
 
-        .product-inner .product-info {
+    .product-inner .product-info {
             text-align: left;
         }
 
-        .product-inner .product-name {
+    .product-inner .product-name {
             margin-bottom: 8px;
             /*	margin-top: 5px;*/
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
+    th {
+        text-align: center;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color: whitesmoke;
+    }
 
+    td {
+        text-align: center;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color: whitesmoke;
+    }
+
+    .texto {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    }
 </style>

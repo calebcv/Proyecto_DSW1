@@ -24,7 +24,6 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">@Html.ActionLink("Productos", "IndexCarrito", "Producto")</li>
-                    <li>@Html.ActionLink("Carrito", "AgregarCarrito", "Carrito")</li>
                     <li>@Html.ActionLink("Consulta", "CategoriaListar", "Consulta")</li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mantenimientos<span class="caret"></span></a>
@@ -55,7 +54,9 @@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
-<footer style="background-color: rgb(33 33 33 / 0.65)  ">
+
+<footer>
+    @*style="background-color: rgb(33 33 33 / 0.65)*@
     <div class="footer-top">
         <div class="container">
             <div class="row flex-flow">
@@ -74,8 +75,8 @@
                         <h3 class="widget-title">SERVICIO AL CLIENTE</h3>
                         <div class="content">
                             <ul>
-                                <li><a href="">Términos & Condiciones</a></li>
-                                <li><a href="">Libro de reclamaciones</a></li>
+                                <li><a class="a" href="">Términos & Condiciones</a></li>
+                                <li><a class="a" href="">Libro de reclamaciones</a></li>
                             </ul>
                         </div>
                     </div>
@@ -85,9 +86,9 @@
                         <h3 class="widget-title">INFORMACIÓN</h3>
                         <div class="content">
                             <ul>
-                                <li><a href="">Tarjeta virtual</a></li>
-                                <li><a href="">¿Cómo funciona?</a></li>
-                                <li><a href="">Preguntas frecuentes</a></li>
+                                <li><a class="a" href="">Tarjeta virtual</a></li>
+                                <li><a class="a" href="">¿Cómo funciona?</a></li>
+                                <li><a class="a" href="">Preguntas frecuentes</a></li>
                             </ul>
                         </div>
                     </div>
@@ -97,9 +98,39 @@
     </div>
     <div class="footer-bottom">
         <div class="container">
-            <p class="text-center">ECOMMERCE Todos los derechos reservados</p>
+            <p class="text-center">STORE Todos los derechos reservados</p>
         </div>
     </div>
 </footer>
-
 </html>
+<style>
+    body{
+        margin:0;
+        display:grid;
+        min-height:100vh;
+        grid-template-rows:auto 1fr auto;
+        padding-bottom:0
+    }
+    footer {
+        background-color: #B3B6B7;
+        padding:1em 0 0 0;
+        margin-top:auto;
+        padding-top:0
+    }
+    p {
+        font-size: 10px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    }
+    h3 {
+        font-size: 15px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    .a {
+        font-size: 10px;
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+
+    }
+    a {
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    }
+</style>
