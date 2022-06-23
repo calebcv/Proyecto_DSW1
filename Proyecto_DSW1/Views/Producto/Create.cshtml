@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Create";
 }
-<body style="background-color: #CACFD2 ">
+<body style="background-color: #42413D">
 
     <h2 class="text-center" style="color:lightslategray ;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">AGREGAR NUEVO PRODUCTO</h2>
 
@@ -17,41 +17,42 @@
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
-                <label class="control-label col-md-2">Categoria</label>
+                <label class="control-label col-md-2" style="color:white">Categoria</label>
                 <div class="col-md-10">
                     @Html.DropDownList("idCategoria", (SelectList)ViewBag.categorias, new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-md-2">Producto</label>
+                <label class="control-label col-md-2" style="color:white">Producto</label>
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.nom_prod, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.nom_prod, "", new { @class = "text-danger" })
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-md-2">Precio</label>
+                <label class="control-label col-md-2" style="color:white">Precio</label>
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.pre_prod, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.pre_prod, "", new { @class = "text-danger" })
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-md-2">Stock</label>
+                <label class="control-label col-md-2" style="color:white">Stock</label>
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.sto_prod, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.sto_prod, "", new { @class = "text-danger" })
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-md-2">Imagen</label>
+                <label class="control-label col-md-2" style="color:white">Imagen</label>
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.img_prod, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.img_prod, "", new { @class = "text-danger" })
+                    <input name="img_prod" type="file" />
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-md-2">Descripcion</label>
+                <label class="control-label col-md-2" style="color:white">Descripcion</label>
                 <div class="col-md-10">
                     @Html.TextAreaFor(model => model.des_prod, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.des_prod, "", new { @class = "text-danger" })
@@ -71,7 +72,11 @@
     </div>
     <br />
 </body>
-
+<style>
+    h4{
+        color:white
+    }
+</style>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
