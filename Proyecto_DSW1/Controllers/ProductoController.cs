@@ -32,19 +32,16 @@ namespace Proyecto_DSW1.Controllers
         }
 
         /*
-        public ActionResult getImage(int id)
+        [HttpPost]
+        public ActionResult Create(HttpPostedFileBase file)
         {
-            Producto producto = db.Producto.Find(id);
-            byte[] byteImage = producto.img_prod;
-
-            MemoryStream memoryStream = new MemoryStream(byteImage);
-            Image image = Image.FromStream(memoryStream);
-
-            memoryStream = new MemoryStream();
-            image.Save(memoryStream, ImageFormat.Jpeg);
-            memoryStream.Position = 0;
-
-            return File(memoryStream, "image/jpg");
+            if (file != null && file.ContentLength > 0)
+            {
+                var filename = Path.GetFileName(file.FileName);
+                var path = Path.Combine(Server.MapPath("~/fotos"), filename);
+                file.SaveAs(path);
+            }
+            return RedirectToAction("Index");
         }
         */
         public ActionResult Create()
