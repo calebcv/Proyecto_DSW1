@@ -32,13 +32,13 @@
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                            <input type="text" name="nom_usu" class="form-control input_user" value="" placeholder="Usuario">
+                            <input type="text" name="nom_usu" class="form-control input_user" value="" placeholder="Usuario" required>
                         </div>
                         <div class="input-group mb-2">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                            <input type="password" name="clave_usu" class="form-control input_pass" value="" placeholder="Clave">
+                            <input type="password" name="clave_usu" class="form-control input_pass" value="" placeholder="Clave" required>
                         </div>
 
                         @if (ViewData["Mensaje"] != null)
