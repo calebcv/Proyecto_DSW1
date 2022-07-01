@@ -4,15 +4,16 @@
     ViewBag.Title = "Delete";
 }
 
-<h2 class="text-center">Eliminacion del Cliente</h2>
+<body style="background-color: #42413D" >
 
-<h3>¿Seguro de eliminar Cliente?</h3>
+    <h2 class="text-center">Eliminación de cliente<strong> @Html.DisplayFor(model => model.nom_cli) @Html.DisplayFor(model => model.ape_cli)</strong> </h2>
+
 <div>
     <h4>Datos del Cliente:</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.dni_clie)
+            DNI
         </dt>
 
         <dd>
@@ -20,7 +21,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.nom_cli)
+            NOMBRE
         </dt>
 
         <dd>
@@ -28,7 +29,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ape_cli)
+            APELLIDO
         </dt>
 
         <dd>
@@ -36,7 +37,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.mail_cli)
+            CORREO
         </dt>
 
         <dd>
@@ -44,7 +45,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.tel_cli)
+            TELEFONO
         </dt>
 
         <dd>
@@ -52,7 +53,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Distrito.nom_dis)
+            DIRECCION
         </dt>
 
         <dd>
@@ -60,13 +61,32 @@
         </dd>
 
     </dl>
-
-    @using (Html.BeginForm()) {
+    <h5>¿Seguro de eliminar Cliente?</h5>
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="ELIMINAR" class="btn btn-danger" /> |
+            @Html.ActionLink("LISTADO", "Index", null, new { @class = "btn btn-warning" })
         </div>
     }
 </div>
+</body>
+<style>
+    dd{
+        color:whitesmoke
+    }
+    dt{
+        color:whitesmoke
+    }
+    h2 {
+        color: whitesmoke
+    }
+    h5 {
+        color: burlywood
+    }
+    h4 {
+        color: whitesmoke
+    }
+</style>

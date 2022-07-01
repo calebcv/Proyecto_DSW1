@@ -15,26 +15,26 @@
     <div class="form-horizontal">
         <h4 style="color:whitesmoke ;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Datos del Producto</h4>
         <div>
-            @Html.ActionLink("Lista de Productos", "Index", null, new { @class = "btn btn-warning" })
+            @Html.ActionLink("Lista de Productos", "Index", null, new { @class = "btn btn-warning asd" })
         </div>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.idProducto, htmlAttributes: new { @class = "control-label col-md-2 readonly" })
+            @Html.LabelFor(model => model.idProducto, htmlAttributes: new { @class = "control-label col-md-2 asd" })
             <div class="col-md-10">
                 @Html.TextBox("idProducto", Model.idProducto, new { @readonly = "readonly", @class = "form-control" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.idCategoria, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.idCategoria, htmlAttributes: new { @class = "control-label col-md-2 asd" })
             <div class="col-md-10">
                 @Html.DropDownList("idCategoria", (SelectList)ViewBag.categorias, new { @class = "form-control" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.nom_prod, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.nom_prod, htmlAttributes: new { @class = "control-label col-md-2 asd" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.nom_prod, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.nom_prod, "", new { @class = "text-danger" })
@@ -42,7 +42,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.pre_prod, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.pre_prod, htmlAttributes: new { @class = "control-label col-md-2 asd" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.pre_prod, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.pre_prod, "", new { @class = "text-danger" })
@@ -50,7 +50,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.sto_prod, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.sto_prod, htmlAttributes: new { @class = "control-label col-md-2 asd" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.sto_prod, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.sto_prod, "", new { @class = "text-danger" })
@@ -58,7 +58,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.img_prod, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.img_prod, htmlAttributes: new { @class = "control-label col-md-2 asd" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.img_prod, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.img_prod, "", new { @class = "text-danger" })
@@ -66,7 +66,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.des_prod, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.des_prod, htmlAttributes: new { @class = "control-label col-md-2 asd" })
             <div class="col-md-10">
                 @Html.TextAreaFor(model => model.des_prod, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.des_prod, "", new { @class = "text-danger" })
@@ -87,3 +87,9 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+<style>
+    .asd{
+        color:whitesmoke
+    }
+</style>
